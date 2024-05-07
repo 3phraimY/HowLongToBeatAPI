@@ -1,11 +1,15 @@
 from howlongtobeatpy  import HowLongToBeat
 
-#seach from ID for HowLongToBeatEntry
-result = HowLongToBeat().search_from_id(7231)
+#seach by name for HowLongToBeatEntry, combines into array of Objects
+results = HowLongToBeat(0.2).search("Portal 2")
 
-#access attribute from json dictionary
-print(result.json_content['game_name'])
+#counter for keys
+i = 0
+for key in results:
+    #print each game name from results array
+    print(results[i].game_name)
+    i+=1
 
-#access attribute directly
-print(result.game_name)
+#access entire json
+print(results[0].json_content)
 
